@@ -3,8 +3,18 @@
 /*-1) Створити масив, наповнити його 10 елементами будь-якого типу, вивести кожен елемент в консоль*/
 
 let colorsArray = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'brown', 'black', 'gray', 'white']
-console.log(1, colorsArray);
-
+console.log(`1, Colors:
+    - ${colorsArray[0]};
+    - ${colorsArray[1]};
+    - ${colorsArray[2]};
+    - ${colorsArray[3]};
+    - ${colorsArray[4]};
+    - ${colorsArray[5]};
+    - ${colorsArray[6]};
+    - ${colorsArray[7]};
+    - ${colorsArray[8]};
+    - ${colorsArray[9]};
+`);
 
 /*-2) Створити 3 об'єкти які описують книги. Поля об'єкту : title ,pageCount, genre.*/
 
@@ -22,46 +32,60 @@ let book2 = {
 
 let book3 = {
     title: 'Head First JavaScript Programming: A Brain-Friendly Guide',
-        pageCount: 704,
+    pageCount: 704,
     genre: 'Action & Adventure'
 }
 
 let booksArray = [book1, book2, book3];
 console.log(2, booksArray);
 
-
 /*-3) Створити 3 об'єкти які описують книги. Поля об'єкту : title ,pageCount, genre, authors. Поле "автори" - являється  масивом. Кожен автор має поля name та age.*/
 
-let author1 = {
-    name: 'Marijn Haverbeke',
-    age: 50,
+let book1WithAuthors = {
+    title: 'Eloquent JavaScript 3rd edition (2018)',
+    pageCount: 472,
+    genre: 'Thriller',
+    authors: [
+        {
+            name: 'Marijn Haverbeke',
+            age: 50,
+        },
+    ],
 };
-let book1WithAuthors = Object.assign(book1);
-book1WithAuthors.authors = [author1];
 
-let author2 = {
-    name: 'Dr. Axel Rauschmayer',
-    age: 40,
+let book2WithAuthors = {
+    title: 'JavaScript for Impatient Programmers (ES2022 edition)',
+    pageCount: 639,
+    genre: 'Magical Realism',
+    authors: [
+        {
+            name: 'Dr. Axel Rauschmayer',
+            age: 40,
+        },
+    ],
 };
-let book2WithAuthors = Object.assign(book2);
-book2WithAuthors.authors = [author2];
 
-let author3 = {
-    name: 'Eric Freeman',
-    age: 30,
-};
-let author4 = {
-    name: 'Elisabeth Robson',
-    age: 20,
-};
-let book3WithAuthors = Object.assign(book3);
-book3WithAuthors.authors = [author3, author4];
+let book3WithAuthors = {
+    title: 'Head First JavaScript Programming: A Brain-Friendly Guide',
+    pageCount: 704,
+    genre: 'Action & Adventure',
+    authors: [
+        {
+            name: 'Eric Freeman',
+            age: 30,
+        },
+        {
+            name: 'Elisabeth Robson',
+            age: 20,
+        },
+    ],
+}
 
 let booksArrayWithAuthors = [book1WithAuthors, book2WithAuthors, book3WithAuthors]
 
 console.log(3, booksArrayWithAuthors);
 
-/*-4) Створити масив з 10 об'єктами які описують сутніть "користувач". Поля: name, username,password. Вивести в консоль пароль кожного користувача*/
+/*-4) Створити масив з 10 об'єктами які описують сутність "користувач". Поля: name, username, password. Вивести в консоль пароль кожного користувача*/
 
 // Спосіб 1й
 
@@ -118,36 +142,18 @@ let users = [
     },
 ]
 
-console.log(4, users);
-for (const user of users) {
-    console.log(user.password);
-}
-
-// Спосіб 2й
-
-function User(name, username, password) {
-    this.name = name;
-    this.username = username;
-    this.password = password;
-}
-
-let usersArray = [
-    new User('user0', 'user0', 'user0000'),
-    new User('user1', 'user1', 'user0001'),
-    new User('user2', 'user2', 'user0002'),
-    new User('user3', 'user3', 'user0003'),
-    new User('user4', 'user4', 'user0004'),
-    new User('user5', 'user5', 'user0005'),
-    new User('user6', 'user6', 'user0006'),
-    new User('user7', 'user7', 'user0007'),
-    new User('user8', 'user8', 'user0008'),
-    new User('user9', 'user9', 'user0009'),
-];
-
-console.log(4, usersArray);
-for (let i = 0; i < usersArray.length; i++) {
-    console.log(usersArray[i].password);
-}
+console.log(`4, Passwords:
+    - ${users[0].password};
+    - ${users[1].password};
+    - ${users[2].password};
+    - ${users[3].password};
+    - ${users[4].password};
+    - ${users[5].password};
+    - ${users[6].password};
+    - ${users[7].password};
+    - ${users[8].password};
+    - ${users[9].password};
+`);
 
 
 // ----------- Логічні розгалуження: -----------
