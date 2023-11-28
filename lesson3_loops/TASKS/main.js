@@ -145,7 +145,7 @@ document.write(`
         `);
 
 for (let user of users) {
-    if (user.status === true) {
+    if (user.status) {
         document.write(`
             <p>- ${user.name}</p>
         `)
@@ -158,7 +158,7 @@ document.write(`
         `);
 
 for (let user of users) {
-    if (user.status === false) {
+    if (!user.status) {
         document.write(`
             <p>- ${user.name}</p>
         `)
