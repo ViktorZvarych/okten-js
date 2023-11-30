@@ -117,11 +117,9 @@ function getMinNumber(array) {
 
     for (number of array) {
         if (minNumber > number) {
-            minNumber = number;
+            return minNumber = number;
         }
     }
-
-    return minNumber;
 }
 
 console.log(10, getMinNumber(numbersArray));
@@ -142,7 +140,7 @@ console.log(11, sum(numbersArray));
 
 //12 - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відаовідних індексах
 //Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
-function swap(arr,index1,index2) {
+function swap(arr, index1, index2) {
     let newArr = [...arr]; //поверхнева (shallow) копія
     // let newArr = JSON.parse(JSON.stringify(arr)); // глибока (deep) копія
     let item1 = newArr[index1];
@@ -164,11 +162,11 @@ console.log(12, swap(numbersArray, 0, 1));
 //13 - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
 // Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250
 
-function exchange(sumUAH,currencyValues,exchangeCurrency) {
+function exchange(sumUAH, currencyValues, exchangeCurrency) {
     let sumCurrency;
 
     for (item of currencyValues) {
-        if(item?.currency === exchangeCurrency) {
+        if (item?.currency === exchangeCurrency) {
             sumCurrency = sumUAH / item.value
         }
     }
@@ -176,4 +174,4 @@ function exchange(sumUAH,currencyValues,exchangeCurrency) {
     return sumCurrency;
 }
 
-console.log(13, exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD'));
+console.log(13, exchange(10000, [{currency: 'USD', value: 40}, {currency: 'EUR', value: 42}], 'USD'));
