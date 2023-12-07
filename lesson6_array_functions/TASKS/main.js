@@ -101,7 +101,7 @@ let coursesAndDurationArray = [
 //11 описати колоду карт (від 6 до туза без джокерів)
 const cards = {
     cardSuits: ['spade', 'diamond', 'heart', 'clubs'],
-    values: ['6', '7', '8', '9', '10', 'ace', 'jack', 'queen', 'king', 'joker'],
+    values: ['6', '7', '8', '9', '10', 'ace', 'jack', 'queen', 'king'],
     colors: ['red', 'black']
 };
 
