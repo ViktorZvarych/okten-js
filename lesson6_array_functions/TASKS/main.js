@@ -237,8 +237,9 @@ let coursesArray = [
         modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
     }
 ];
+
 //19 --написати пошук всіх об'єктів, в який в modules є sass
 console.log('19)', coursesArray.filter(course => course.modules.find(element => element === 'sass')));
 
 //20 --написати пошук всіх об'єктів, в який в modules є docker
-console.log('19)', coursesArray.filter(course => course.modules.find(element => element === 'docker')));
+console.log('20)', coursesArray.filter(course => course.modules.find(element => element === 'docker')));
