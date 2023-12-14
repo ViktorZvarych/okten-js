@@ -43,6 +43,15 @@ console.log('6)', numberArray6.map(item => item.toString()));
 
     console.log('7-1)', sortNums(nums7, 'descending'));
     console.log('7-2)', sortNums(nums7, 'ascending'));
+
+    const sortNums2 = (nums7, direction) => {
+        switch (direction) {
+            case 'ascending':
+                return sortNumsToMax(nums7);
+            case 'descending':
+                return sortNumsToMin(nums7)
+        }
+    }
 })();
 
 // ==========================
@@ -131,7 +140,8 @@ console.log('14)', cardsPack.filter(card => card.color === 'red'));
 console.log('15)', cardsPack.filter(card => card.cardSuit === 'diamond'));
 
 //16 - всі трефи від 9 та більше
-console.log('16)', cardsPack.filter(card => card.cardSuit === 'clubs' && card.value >= '9' || card.cardSuit === 'clubs' && card.value >= 9));
+console.log('16-1)', cardsPack.filter(card => card.cardSuit === 'clubs' && card.value >= '9' || card.cardSuit === 'clubs' && card.value >= 9));
+console.log('16-1)', cardsPack.filter(card => card.cardSuit === 'clubs' && [9, 10, 'ace', 'jack', 'queen', 'king'].includes(card.value)));
 
 
 // =========================
@@ -168,7 +178,7 @@ console.log('17)', cardsPackSorted);
 
 // =========================
 //     взяти з arrays.js (який лежить в папці 2023 plan) масив coursesArray
-let coursesArray = [
+let coursesArray19 = [
     {
         title: 'JavaScript Complex',
         monthDuration: 5,
@@ -239,7 +249,12 @@ let coursesArray = [
 ];
 
 //19 --написати пошук всіх об'єктів, в який в modules є sass
-console.log('19)', coursesArray.filter(course => course.modules.find(element => element === 'sass')));
+console.log('19)', coursesArray19.filter(({
+                                              title,
+                                              monthDuration,
+                                              hourDuration,
+                                              modules
+                                          }) => modules.find(element => element === 'sass')));
 
 //20 --написати пошук всіх об'єктів, в який в modules є docker
-console.log('20)', coursesArray.filter(course => course.modules.find(element => element === 'docker')));
+console.log('20)', coursesArray19.filter(({modules}) => modules.includes('docker')));
