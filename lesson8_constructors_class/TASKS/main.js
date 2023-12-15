@@ -248,11 +248,16 @@ nissanLeaf2.increaseMaxSpeed(170);
 nissanLeaf2.changeYear(2022);
 
 //9- створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити масив з 10 попелюшок.
-
-class Cinderella {
-    constructor(name, age, footSize) {
+class Human {
+    constructor(name, age) {
         this.name = name;
         this.age = age;
+    }
+}
+
+class Cinderella extends Human {
+    constructor(name, age, footSize) {
+        super(name, age);
         this.footSize = footSize;
     }
 }
@@ -284,11 +289,22 @@ let cinderellasArray = [
 console.log(9, cinderellasArray)
 
 //10-Створити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
-class Prince {
+class Prince extends Human {
     constructor(name, age, slipperSize) {
-        this.name = name;
-        this.age = age;
+        super(name, age);
         this.slipperSize = slipperSize;
+    }
+
+    findCinderella(cinderellasArray) {
+        for (const cinderella of cinderellasArray) {
+            if (cinderella.footSize === this.slipperSize) {
+                console.log(11, `${cinderella.name} - is the princess You were looking for, Your Majesty`)
+            }
+        }
+    }
+
+    findCinderellaWithCallback(cinderellasArray) {
+        console.log(12, `${(cinderellasArray.find(({footSize}) => footSize === this.slipperSize)).name} - is the princess You were looking for, Your Majesty`);
     }
 }
 
@@ -296,11 +312,8 @@ let prince1 = new Prince('Viktor', 37, 35);
 console.log(10, prince1);
 
 //11 За допомоги циклу знайти яка попелюшка повинна бути з принцом.
-for (const cinderella of cinderellasArray) {
-    if (cinderella.footSize === prince1.slipperSize) {
-        console.log(11, `${cinderella.name} - is the princess You were looking for, Your Majesty`)
-    }
-}
+
+prince1.findCinderella(cinderellasArray);
 
 //12 Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
-console.log(12, `${(cinderellasArray.find(({footSize}) => footSize === prince1.slipperSize)).name} - is the princess You were looking for, Your Majesty`);
+prince1.findCinderellaWithCallback(cinderellasArray)
