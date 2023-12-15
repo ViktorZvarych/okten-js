@@ -45,23 +45,40 @@ class Client {
     }
 }
 
-console.log(4, Client);
+console.log(4.1, Client);
+
+class ClientInheritedUser {
+    constructor(id, name, surname, email, phone, orderArray) {
+        User.apply(this, [id, name, surname, email, phone])
+
+        this.order = orderArray;
+    }
+}
+
+console.log(4.2, ClientInheritedUser);
 
 //5- створити пустий масив, наповнити його 10 об'єктами Client
-let clients = [];
+let clients = [
+    new Client(random(), 'vika', 'makarevych', 'makarevych@gmail.com', '0986549853', ['gun', 'doll', 'lego']),
+    new Client(random(), 'olia', 'makaronenko', 'olia@gmail.com', '0976549853', ['pen']),
+    new Client(random(), 'ania', 'makar', 'ania@gmail.com', '0966549853', ['flower', 'teddy bear']),
+    new Client(random(), 'katia', 'makarenko', 'katia@gmail.com', '0956549853', ['car', 'lego']),
+    new Client(random(), 'olena', 'makariv', 'olena@gmail.com', '0946549853', ['ball']),
+    new Client(random(), 'viktor', 'makarenych', 'viktor@gmail.com', '0936549853', []),
+    new Client(random(), 'andriy', 'makarunj', 'andriy@gmail.com', '0926549853', ['skate', 'ball']),
+    new Client(random(), 'oleh', 'makarov', 'oleh@gmail.com', '0916549853', []),
+    new Client(random(), 'ivan', 'makarello', 'ivan@gmail.com', '0906549853', ['phone']),
+    new Client(random(), 'taras', 'makaronchyk', 'taras@gmail.com', '0996549853', ['gun', 'doll', 'lego', 'flower', 'computer'])
+];
 
-clients.push(new Client(random(), 'vika', 'makarevych', 'makarevych@gmail.com', '0986549853', ['gun', 'doll', 'lego']));
-clients.push(new Client(random(), 'olia', 'makaronenko', 'olia@gmail.com', '0976549853', ['pen']));
-clients.push(new Client(random(), 'ania', 'makar', 'ania@gmail.com', '0966549853', ['flower', 'teddy bear']));
-clients.push(new Client(random(), 'katia', 'makarenko', 'katia@gmail.com', '0956549853', ['car', 'lego']));
-clients.push(new Client(random(), 'olena', 'makariv', 'olena@gmail.com', '0946549853', ['ball']));
-clients.push(new Client(random(), 'viktor', 'makarenych', 'viktor@gmail.com', '0936549853', []));
-clients.push(new Client(random(), 'andriy', 'makarunj', 'andriy@gmail.com', '0926549853', ['skate', 'ball']));
-clients.push(new Client(random(), 'oleh', 'makarov', 'oleh@gmail.com', '0916549853', []));
-clients.push(new Client(random(), 'ivan', 'makarello', 'ivan@gmail.com', '0906549853', ['phone']));
-clients.push(new Client(random(), 'taras', 'makaronchyk', 'taras@gmail.com', '0996549853', ['gun', 'doll', 'lego', 'flower', 'computer']));
+console.log(5.1, clients);
 
-console.log(5, clients);
+let clientsInheritedUser = [
+    new ClientInheritedUser(random(), 'ivan', 'makarello', 'ivan@gmail.com', '0906549853', ['phone']),
+    new ClientInheritedUser(random(), 'taras', 'makaronchyk', 'taras@gmail.com', '0996549853', ['gun', 'doll', 'lego', 'flower', 'computer'])
+]
+
+console.log(5.2, clientsInheritedUser);
 
 //6- Взяти масив (Client [] з попереднього завдання).Відсортувати його по кількості товарів в полі order по зростанню. (sort)
 let clientsClone = structuredClone(clients)
@@ -99,6 +116,7 @@ function Car(model, manufacturer, manufactureYear, maximumSpeed, engineCapacity)
         }
 
         console.log(7, info);
+        // return info; або так
     };
 
     //-- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
@@ -116,6 +134,7 @@ function Car(model, manufacturer, manufactureYear, maximumSpeed, engineCapacity)
 
     //-- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
     this.addDriver = function (driver) {
+        // this.driver = driver; варіант2
         this.driver = {};
         for (const [key, value] of Object.entries(driver)) {
             this.driver[key] = value;
@@ -188,6 +207,7 @@ class CarClass {
 
     //-- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
     addDriver(driver) {
+        // this.driver = driver; варіант2
         this.driver = {};
         for (const [key, value] of Object.entries(driver)) {
             this.driver[key] = value;
@@ -207,7 +227,25 @@ console.log(8, nissanLeaf);
 nissanLeaf.drive();
 nissanLeaf.info();
 nissanLeaf.increaseMaxSpeed(165);
-nissanLeaf.changeYear(2020);
+nissanLeaf.changeYear(2016);
+
+class CarClassInheritedCarConstructor {
+    constructor(model, manufacturer, manufactureYear, maximumSpeed, engineCapacity) {
+        Car.apply(this, [model, manufacturer, manufactureYear, maximumSpeed, engineCapacity]);
+    }
+}
+
+let nissanLeaf2 = new CarClassInheritedCarConstructor('leaf2', 'nissan', 2020, 165, 2.2);
+
+console.log(8.2, nissanLeaf2);
+
+nissanLeaf2.addDriver({name: 'Vika', age: 33});
+console.log(8.2, nissanLeaf2);
+
+nissanLeaf2.drive();
+nissanLeaf2.info();
+nissanLeaf2.increaseMaxSpeed(170);
+nissanLeaf2.changeYear(2022);
 
 //9- створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити масив з 10 попелюшок.
 
