@@ -274,16 +274,16 @@ let cinderella9 = new Cinderella('Anita', 17, 34);
 let cinderella10 = new Cinderella('Oxana', 33, 33);
 
 let cinderellasArray = [
-    cinderella1,
-    cinderella2,
-    cinderella3,
-    cinderella4,
-    cinderella5,
-    cinderella6,
-    cinderella7,
-    cinderella8,
-    cinderella9,
-    cinderella10
+    new Cinderella('Ania', 27, 36),
+    new Cinderella('Vika', 33, 35),
+    new Cinderella('Olia', 25, 29),
+    new Cinderella('Katia', 23, 34),
+    new Cinderella('Kim Basinger', 29, 41),
+    new Cinderella('Liza', 37, 42),
+    new Cinderella('Monica', 47, 45),
+    new Cinderella('Olena', 59, 39),
+    new Cinderella('Anita', 17, 34),
+    new Cinderella('Oxana', 33, 33)
 ]
 
 console.log(9, cinderellasArray)
