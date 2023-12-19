@@ -303,7 +303,7 @@ class Prince extends Human {
         }
     }
 
-    findCinderellaWithCallback(cinderellasArray) {
+    findCinderellaWithCallback = (cinderellasArray) => {
         console.log(12, `${(cinderellasArray.find(({footSize}) => footSize === this.slipperSize)).name} - is the princess You were looking for, Your Majesty`);
     }
 }
