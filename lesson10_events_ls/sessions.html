@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Sessions</title>
+</head>
+<body>
+	<script>
+        const body = document.body;
+
+        // Home page Link
+        let homeLink = document.createElement('a');
+        homeLink.setAttribute('href', './index.html');
+        homeLink.innerText = 'Home link';
+        homeLink.setAttribute('target', '_blank');
+        body.appendChild(homeLink);
+
+        // Button to Clear Session Info in Local Storage
+		let clearButton = document.createElement('button');
+        clearButton.innerText = 'Clear Sessions Info';
+        clearButton.style.display = 'block';
+        clearButton.style.marginTop = '1rem';
+        body.appendChild(clearButton);
+        clearButton.addEventListener('click', () => {
+            if (JSON.parse(localStorage.getItem('sessions'))) {
+                localStorage.setItem('sessions', JSON.stringify([]));
+                sessionInfoBlock.innerHTML = '';
+            }
+		})
+
+        // Sessions Information
+        const sessionInfoBlock = document.createElement('div');
+        body.appendChild(sessionInfoBlock);
+
+        const onStorageChange = () => {
+            let sessionsInfoArray = JSON.parse(localStorage.getItem('sessions')) || null;
+            // let sessionNumber = JSON.parse(localStorage.getItem('sessionNumber')) || null;
+
+            if (sessionsInfoArray) {
+                 let sessionsInfo = ``;
+                 sessionsInfoArray.map(session => {
+                     sessionsInfo = `<p>${session}</p>` + sessionsInfo;
+				 });
+
+                sessionInfoBlock.innerHTML = sessionsInfo;
+            }
+        }
+
+        window.addEventListener('storage', onStorageChange);
+
+	</script>
+
+</body>
+</html>
