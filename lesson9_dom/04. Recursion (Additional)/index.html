@@ -1,75 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>owu.com.ua - OKTEN SCHOOL</title>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>owu.com.ua - OKTEN SCHOOL</title>
 </head>
 <body>
 
-<ul id="xxx">
-    <li></li>
-    <li class="eytfygfubd"></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-</ul>
+	<ul id="xxx">
+		<li></li>
+		<li class="eytfygfubd"></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
 
-<div class="hgdfugsdufg">
-    <ul>
-        <li id="yyy"></li>
-        <li class="asdqewe"></li>
-        <li></li>
-        <li class="uyfysfs"></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li class="ywter7yewr"></li>
-        <li>
-            <div class="qqqqqqqqqqq">
+	<div class="hgdfugsdufg">
+		<ul>
+			<li id="yyy"></li>
+			<li class="asdqewe"></li>
+			<li></li>
+			<li class="uyfysfs"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li class="ywter7yewr"></li>
+			<li>
+				<div class="qqqqqqqqqqq">
 
-                <a href=""></a>
-            </div>
-        </li>
-        <li>
+					<a href=""></a>
+				</div>
+			</li>
+			<li>
 
-            <ul class="asd">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </li>
-    </ul>
-</div>
-<div></div>
+				<ul class="asd">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div></div>
 
 
-<script>
+	<script>
 
-    function explorer(htmlElement) {
-        console.log(htmlElement);
-        let children = htmlElement.children;
-        if (children.length !== 0) {
-            for (const child of children) {
-                explorer(child);
+        function explorer(htmlElement) {
+            console.log(htmlElement);
+            let children = htmlElement.children;
+            if (children.length !== 0) {
+                for (const child of children) {
+                    explorer(child);
+                }
             }
         }
-    }
 
-    explorer(document.body);
+        explorer(document.body);
 
 
-</script>
+        //     --------------
+        const elements = document.querySelectorAll('.item-grid-card--show-meta');
+        console.log(elements);
+
+        class Audio {
+            constructor(audioUrl, audioTitle, audioAuthor) {
+                this.audioUrl = audioUrl;
+                this.audioTitle = audioTitle;
+                this.audioAuthor = audioAuthor;
+            }
+        }
+
+        let audios = [];
+
+        elements.forEach(element => {
+            const audioUrl = element.children[0].getAttribute('data-audio-player-preview-url-value');
+
+            const h2element = element.children[1].children[0];
+            const audioTitle = h2element.innerText;
+
+            const pElement = element.children[1].children[2];
+            const audioAuthor = pElement.innerText;
+
+            audios.push(new Audio(audioUrl, audioTitle, audioAuthor));
+		});
+
+        console.log(audios);
+
+        console.log(elements[0].children[0].getAttribute('data-audio-player-preview-url-value'));
+        const audioUrl = elements[0].children[0].getAttribute('data-audio-player-preview-url-value');
+
+        const h2element = elements[0].children[1].children[0];
+        const audioTitle = h2element.innerText;
+
+        const pElement = elements[0].children[1].children[2];
+        const audioAuthor = pElement.innerText;
+
+	</script>
+	<div class="item-grid-card__meta">
+		<h2 class="item-grid-card__title">
+			Tech House vibes
+		</h2>
+		<p class="item-grid-music-preview__author">
+			by Alejandro Magaña (A. M.)
+		</p>
+		<div class="item-grid-music-preview__meta">
+			<div class="item-grid-music-preview__meta-links">
+				<div class="meta-links__wrapper" data-controller="global--meta-links"
+					 data-action="resize@window->global--meta-links#layout" data-global--meta-links-target="metaWrapper"
+					 data-global--meta-links-show-dropdown-value="false" data-analytics-context-detail="meta links"
+					 data-global--meta-links-show-more-value="true">
+					<div class="meta-links__links">
+						<a class="meta-links__link" data-global--meta-links-target="link"
+						   href="/free-stock-music/house-and-electronica/">House &amp; Electronica</a>
+						<a class="meta-links__link" data-global--meta-links-target="link"
+						   href="/free-stock-music/mood/mellow/" data-hidden="true">Mellow</a>
+						<a class="meta-links__link" data-global--meta-links-target="link"
+						   href="/free-stock-music/mood/smooth/" data-hidden="true">Smooth</a>
+						<a class="meta-links__link" data-global--meta-links-target="link"
+						   href="/free-stock-music/tag/background/" data-hidden="true">Background</a>
+						<a class="meta-links__link" data-global--meta-links-target="link"
+						   href="/free-stock-music/tag/intro/" data-hidden="true">Intro</a>
+						<a class="meta-links__link" data-global--meta-links-target="link"
+						   href="/free-stock-music/tag/electronic/" data-hidden="true">Electronic</a>
+						<a class="meta-links__link" data-global--meta-links-target="link"
+						   href="/free-stock-music/tag/inspirational/" data-hidden="true">Inspirational</a>
+						<a class="meta-links__link" data-global--meta-links-target="link"
+						   href="/free-stock-music/tag/lounge/" data-hidden="true">Lounge</a>
+						<a class="meta-links__link" data-global--meta-links-target="link"
+						   href="/free-stock-music/tag/vocals/" data-hidden="true">Vocals</a>
+					</div>
+					<div class="meta-links__links meta-links__links--ellipsis" data-global--meta-links-target="more">
+						<span class="meta-links__link meta-links__link--ellipsis"></span>
+						<div class="meta-links__link-children-outer">
+							<div class="meta-links__link-children-inner" data-global--meta-links-target="moreLinks"><a
+									class="meta-links__link" data-global--meta-links-target="link"
+									href="/free-stock-music/mood/mellow/" data-hidden="true">Mellow</a><a
+									class="meta-links__link" data-global--meta-links-target="link"
+									href="/free-stock-music/mood/smooth/" data-hidden="true">Smooth</a><a
+									class="meta-links__link" data-global--meta-links-target="link"
+									href="/free-stock-music/tag/background/" data-hidden="true">Background</a><a
+									class="meta-links__link" data-global--meta-links-target="link"
+									href="/free-stock-music/tag/intro/" data-hidden="true">Intro</a><a
+									class="meta-links__link" data-global--meta-links-target="link"
+									href="/free-stock-music/tag/electronic/" data-hidden="true">Electronic</a><a
+									class="meta-links__link" data-global--meta-links-target="link"
+									href="/free-stock-music/tag/inspirational/" data-hidden="true">Inspirational</a><a
+									class="meta-links__link" data-global--meta-links-target="link"
+									href="/free-stock-music/tag/lounge/" data-hidden="true">Lounge</a><a
+									class="meta-links__link" data-global--meta-links-target="link"
+									href="/free-stock-music/tag/vocals/" data-hidden="true">Vocals</a></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="item-grid-music-preview__meta-time" data-test-id="duration">
+				1:42
+			</div>
+			<div class="item-grid-music-preview__meta-download">
+				<button class="download-button--icon" data-controller="download--button"
+						data-algolia-analytics-item-type="music" data-algolia-analytics-item-id="130"
+						data-action="click->download--button#openDownloadModal click->algolia-analytics#trackConversion"
+						data-download--button-modal-url-value="/free-stock-music/download/130/?context=item+grid"
+						aria-label="Download Free Music">
+					Download Free Music
+				</button>
+
+			</div>
+		</div>
+
+	</div>
 </body>
 </html>

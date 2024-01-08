@@ -72,7 +72,7 @@ const body = document.body;
 
 // ==========================
 
-//3 - Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховище, в масив sessions зберігається інформація про дату та час відвідування сторінки. Є ще сторінка sessions.html (назва довільна), при відвідуванні якої потрібно відмалювати всю інформацію про відвідування сторінки index.html. Інфу НЕ виводити в консоль, а побудувати дом структуру під кожну сессію
+//3 - Є сторінка users.html (назва довільна), при відвідуванні якої в локальне сховище, в масив sessions зберігається інформація про дату та час відвідування сторінки. Є ще сторінка sessions.html (назва довільна), при відвідуванні якої потрібно відмалювати всю інформацію про відвідування сторінки users.html. Інфу НЕ виводити в консоль, а побудувати дом структуру під кожну сессію
 
 (() => {
     function onLoadHandler() {
@@ -172,13 +172,31 @@ const body = document.body;
     prev.addEventListener('click', () => displayProducts(productsArray, 'prev'));
     next.addEventListener('click', () => displayProducts(productsArray, 'next'));
 
-    fetch('https://dummyjson.com/products?limit=100')
-        .then(res => res.json())
-        .then(({products}) => productsArray = products)
-        .then(productsArray => displayProducts(productsArray));
+    if (!window.navigator.onLine) {
+        console.log("No connection!")
+    } else {
+        fetch('https://dummyjson.com/products?limit=100')
+            .then(res => {
+                if (res.error) {
+                    console.log(res.ok, res.status, res.statusText, res.error)
+                }
+                console.log(res)
+                return res.json()
+            })
+            .then(({products}) => productsArray = products)
+            .then(productsArray => displayProducts(productsArray))
+            .catch(reason => console.log(reason));
+    }
+
+
+
 
     // ?
-    // У рядках 184-202 я спробував різні способи запхати fetch у try catch блок, аби зловити помилку, якщо не буде інтернету, або за адресою відсутні потрібні дані. Але чомусь цей catch нічого не зловив. Не розумію, де я тут наплужив...
+    // У рядках 184-202 я спробував різні способи запхати fetch у try catch блок,
+    // аби зловити помилку, якщо не буде інтернету,
+    // або за адресою відсутні потрібні дані.
+    // Але чомусь цей catch нічого не зловив.
+    // Не розумію, де я тут наплужив...
     // ?
 
     // try {
